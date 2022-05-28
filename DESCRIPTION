@@ -1,0 +1,32 @@
+Package: glitrpatch
+Type: Package
+Title: Generate Standard SI Cascade Plots
+Version: 0.1.0
+Authors@R: c(
+    person("Tim", "Essam", ,"tessam@usaid.gov", c("aut", "cre")),
+    person("Karishma", "Srinkanth", , "ksrinkanth@usaid.gov", c("aut"))
+   )
+Maintainer: The package maintainer <tessam@usaid.gov>
+Description: This package generates different types of cascade plots.
+    Using a MER structured data set as an input, glitrpatch will generate
+    a series of cascade plots. 
+License: MIT + file LICENSE
+URL: https://github.com/USAID-OHA-SI/glitrpatch
+Depends: 
+    R (>= 3.4.2)
+Imports:
+  dplyr,
+  forcats,
+  ggplot2,
+  scales,
+  stringr,
+  tidyr,
+Remotes: 
+  USAID-OHA-SI/glamr, 
+  USAID-OHA-SI/glitr,
+  USAID-OHA-SI/gophr
+LazyData: true
+RoxygenNote: 7.1.2
+Encoding: UTF-8
+VignetteBuilder: knitr
+  
