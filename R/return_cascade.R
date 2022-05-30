@@ -9,49 +9,49 @@
 #'
 #' @examples
 return_cascade <- function(df, cscd_num){
-  
+
   # For Total Numerator all, female, male
   if(cscd_num %in% c(1, 2, 3)){
     df_cscd <-
-      df %>% 
-      youth_wrapper() %>% 
+      df %>%
+      youth_wrapper() %>%
       {if (cscd_num == 2) fltr_sex(., m_or_f = "Female") else .} %>%
       {if (cscd_num == 3) fltr_sex(., m_or_f = "Male")   else .} %>%
       sum_reshape()
   }
-  
+
   # Pediatric cascades all, female, male
   if(cscd_num  %in% c(4, 5, 6)){
-    df_cscd <- 
-      df %>% 
-      youth_wrapper() %>% 
+    df_cscd <-
+      df %>%
+      youth_wrapper() %>%
       {if (cscd_num == 5) fltr_sex(., m_or_f = "Female") else .} %>%
       {if (cscd_num == 6) fltr_sex(., m_or_f = "Male")   else .} %>%
-      sum_reshape(trendscoarse) %>% 
-      filter(trendscoarse == "<15") 
+      sum_reshape(trendscoarse) %>%
+      dplyr::filter(trendscoarse == "<15")
   }
-  
+
   # AYP cascades all, female, male
   if(cscd_num  %in% c(7, 8, 9)){
-    df_cscd <- 
-      df %>% 
-      youth_wrapper() %>% 
+    df_cscd <-
+      df %>%
+      youth_wrapper() %>%
       {if (cscd_num == 8) fltr_sex(., m_or_f = "Female") else .} %>%
       {if (cscd_num == 9) fltr_sex(., m_or_f = "Male")   else .} %>%
-      fltr_ayp() %>% 
-      sum_reshape(trendscoarse) %>% 
-      filter(trendscoarse == "AYP")
+      fltr_ayp() %>%
+      sum_reshape(trendscoarse) %>%
+      dplyr::filter(trendscoarse == "AYP")
   }
-  
+
   # KP cascde (1 option)
   if(cscd_num == 10){
-    df_cscd <- 
-      df %>% 
-      fltr_cascade() %>% 
-      fltr_disag(pop_fltr = disag_kp) %>% 
+    df_cscd <-
+      df %>%
+      fltr_cascade() %>%
+      fltr_disag(pop_fltr = disag_kp) %>%
       sum_reshape()
   }
-  
+
   return(df_cscd)
 }
 
@@ -63,11 +63,11 @@ return_cascade <- function(df, cscd_num){
 
 # Returns the cascade indicators from an msd
 #' Cascade filter
-#' 
+#'
 #' Filters the cascade variables to current fiscal year and
 #' sets USAID as default funding agency
 #'
-#' @param .data MER structured data set 
+#' @param .data MER structured data set
 #' @param agency default is USAID
 #'
 #' @return
@@ -75,8 +75,8 @@ return_cascade <- function(df, cscd_num){
 #'
 #' @examples
 fltr_cascade <- function(.data, agency = "USAID") {
-  .data %>% 
-    dplyr::filter(fiscal_year == curr_fy, 
+  .data %>%
+    dplyr::filter(fiscal_year == curr_fy,
                   funding_agency == agency,
                   indicator %in% gophr::cascade_ind)
 }
@@ -86,7 +86,7 @@ fltr_cascade <- function(.data, agency = "USAID") {
 #'
 #' Filters the MSD to the appropriate population disaggregate
 #'
-#' @param .data  MER structured data set 
+#' @param .data  MER structured data set
 #' @param pop_fltr population filter to be applied to disaggregate
 #'
 #' @return
@@ -94,14 +94,14 @@ fltr_cascade <- function(.data, agency = "USAID") {
 #'
 #' @examples
 fltr_disag <- function(.data, pop_fltr) {
-  .data %>% 
+  .data %>%
     dplyr::filter(standardizeddisaggregate %in% pop_fltr)
 }
 
 
-# 
+#
 #' Filter for Adults and Young People
-#' 
+#'
 #' Filters a whittled down MSD into 15-24 year olds or AYPs.
 #'
 #' @param .data MER structured data set whittled down
@@ -111,13 +111,13 @@ fltr_disag <- function(.data, pop_fltr) {
 #'
 #' @examples
 fltr_ayp <- function(.data){
-  .data %>% 
+  .data %>%
     dplyr::mutate(trendscoarse = ifelse(ageasentered %in% c("15-19", "20-24"), "AYP", "Non AYP"))
 }
 
 
 #' Filter sex
-#' 
+#'
 #' Filters a whittled down MSD into sex categories, male or female.
 #'
 #' @param .data whittled down MSD
@@ -128,7 +128,7 @@ fltr_ayp <- function(.data){
 #'
 #' @examples
 fltr_sex <- function(.data, m_or_f ){
-  .data %>% 
+  .data %>%
     dplyr::filter(sex %in% m_or_f)
 }
 
@@ -136,7 +136,7 @@ fltr_sex <- function(.data, m_or_f ){
 
 
 #' Wrapper for youth cascade
-#' 
+#'
 #' Combines the cascade filter with the peds disag
 #'
 #' @param .data MSD data set
@@ -146,8 +146,8 @@ fltr_sex <- function(.data, m_or_f ){
 #'
 #' @examples
 youth_wrapper <- function(.data){
-  .data %>% 
-    fltr_cascade() %>% 
+  .data %>%
+    fltr_cascade() %>%
     fltr_disag(pop_fltr = disag_peds)
 }
 
@@ -155,7 +155,7 @@ youth_wrapper <- function(.data){
 
 #' Aggregate targets and results
 #'
-#' Takes a whittled down MSD and cleans the indicators, 
+#' Takes a whittled down MSD and cleans the indicators,
 #' summarizes the targets and results, and reshapes everything
 #' into a long data set with quarters and cumulative results.
 #'
@@ -166,11 +166,11 @@ youth_wrapper <- function(.data){
 #' @export
 #'
 #' @examples
-sum_reshape <- function(.data, ...) { 
-  .data %>% 
-    glamr::clean_indicator() %>% 
+sum_reshape <- function(.data, ...) {
+  .data %>%
+    glamr::clean_indicator() %>%
     dplyr::group_by(funding_agency, indicator, fiscal_year, ...) %>%
-    dplyr::summarise(across(matches("targ|qtr"), sum, na.rm = T)) %>%
-    gophr::reshape_msd(direction = "quarters") %>% 
+    dplyr::summarise(dplyr::across(matches("targ|qtr"), sum, na.rm = T)) %>%
+    gophr::reshape_msd(direction = "quarters") %>%
     dplyr::ungroup()
 }

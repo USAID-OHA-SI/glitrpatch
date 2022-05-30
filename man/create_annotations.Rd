@@ -7,9 +7,9 @@
 create_annotations(.data, cscd_df)
 }
 \arguments{
-\item{.data}{}
+\item{.data}{munged data frame resulting from `create_cascade`}
 
-\item{cscd_df}{}
+\item{cscd_df}{cascade value from the `create_cascade`}
 }
 \value{
 

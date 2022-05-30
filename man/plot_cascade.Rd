@@ -3,7 +3,7 @@
 \name{plot_cascade}
 \alias{plot_cascade}
 \title{Plot Cascade
-`plot_cascade` is a ggplot2-based plot that arranges, annotates and 
+`plot_cascade` is a ggplot2-based plot that arranges, annotates and
 plots data from the 90-90-90 cascade. Four inputs are required to create
 a valid plot.}
 \usage{
@@ -23,7 +23,7 @@ plot_cascade(.data, df_annot, cscd_num, p_title)
 }
 \description{
 Plot Cascade
-`plot_cascade` is a ggplot2-based plot that arranges, annotates and 
+`plot_cascade` is a ggplot2-based plot that arranges, annotates and
 plots data from the 90-90-90 cascade. Four inputs are required to create
 a valid plot.
 }

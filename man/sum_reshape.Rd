@@ -15,7 +15,7 @@ sum_reshape(.data, ...)
 
 }
 \description{
-Takes a whittled down MSD and cleans the indicators, 
+Takes a whittled down MSD and cleans the indicators,
 summarizes the targets and results, and reshapes everything
 into a long data set with quarters and cumulative results.
 }
