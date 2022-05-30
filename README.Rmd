@@ -45,6 +45,9 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(glitrpatch)
 ## basic example code
+
+
+
 ```
 
 
@@ -52,3 +55,4 @@ You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-da
 
 
 _Disclaimer: The findings, interpretation, and conclusions expressed herein are those of the authors and do not necessarily reflect the views of United States Agency for International Development. All errors remain our own._
+https://github.com/USAID-OHA-SI
