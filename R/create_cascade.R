@@ -42,6 +42,10 @@ create_cascade <- function(msd_df){
          usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the curr_fy.")
     )
 
+  if(!exists("curr_pd"))
+    stop(usethis::ui_code_block("curr_fy <- glamr::source_info(genie_path, return = 'period')"),
+         usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the curr_pd.")
+    )
 
 
   # Fetch the plot title

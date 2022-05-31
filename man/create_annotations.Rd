@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_annotations.R
 \name{create_annotations}
 \alias{create_annotations}
-\title{Title}
+\title{Create data frame for pulling annotations}
 \usage{
 create_annotations(.data, cscd_df)
 }
@@ -11,6 +11,9 @@ create_annotations(.data, cscd_df)
 
 \item{cscd_df}{cascade value from the `create_cascade`}
 }
+\value{
+a data frame of annotation values
+}
 \description{
-Title
+Create data frame for pulling annotations
 }

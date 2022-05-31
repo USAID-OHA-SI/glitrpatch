@@ -2,7 +2,7 @@
 % Please edit documentation in R/assign_cscd_colors.R
 \name{assign_cscd_colors}
 \alias{assign_cscd_colors}
-\title{Title}
+\title{Assign cascade colors}
 \usage{
 assign_cscd_colors(.data)
 }
@@ -13,5 +13,5 @@ assign_cscd_colors(.data)
 `df_cscd_viz` data frame
 }
 \description{
-Title
+Assign cascade colors
 }

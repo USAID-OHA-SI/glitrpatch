@@ -2,7 +2,7 @@
 % Please edit documentation in R/return_cascade.R
 \name{return_cascade}
 \alias{return_cascade}
-\title{Title}
+\title{Returns a data frame of cascade indicators for a given population}
 \usage{
 return_cascade(df, cscd_num)
 }
@@ -11,6 +11,9 @@ return_cascade(df, cscd_num)
 
 \item{cscd_num}{cascade selection from user}
 }
+\value{
+a data frame of cascade indicators
+}
 \description{
-Title
+Returns a data frame of cascade indicators for a given population
 }

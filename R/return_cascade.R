@@ -1,10 +1,10 @@
 # Fetches the correct version of the data from each cascade option
-#' Title
+#' Returns a data frame of cascade indicators for a given population
 #'
 #' @param df MER structured data set for a given population and geography
 #' @param cscd_num cascade selection from user
 #'
-#' @return
+#' @return a data frame of cascade indicators
 #' @export
 #'
 #' @examples

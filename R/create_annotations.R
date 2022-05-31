@@ -1,10 +1,10 @@
-# Takes the munged cascade dataframe and generates annotation pieces needed
-#' Title
+
+#' Create data frame for pulling annotations
 #'
 #' @param .data munged data frame resulting from `create_cascade`
 #' @param cscd_df cascade value from the `create_cascade`
 #'
-#' @return
+#' @return a data frame of annotation values
 #' @export
 #'
 #' @examples

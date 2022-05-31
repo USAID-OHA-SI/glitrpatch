@@ -126,7 +126,7 @@ plot_cascade <- function(.data, df_annot, cscd_num, p_title){
     ggplot2::geom_text(data = df_annot %>%
                          dplyr::filter(indicator == "TX_PVLS"),
                        aes(y = results_cumulative.y,
-                           label = paste("VLC:",
+                           label = paste("VLS:",
                                          scales::percent(results_cumulative.x)),
                            x = indicator,
                            fill = targets_color),

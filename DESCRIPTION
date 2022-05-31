@@ -22,7 +22,8 @@ Imports:
     stringr,
     tidyr,
     knitr,
-    magrittr
+    magrittr, 
+    extrafont
 Remotes: 
   USAID-OHA-SI/glamr, 
   USAID-OHA-SI/glitr,
