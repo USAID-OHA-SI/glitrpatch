@@ -1,8 +1,9 @@
 
 #Object containing all the options for the cascade
-plot_name <- c("Standard", "Standard Female", "Standard Male", 
-               "Pediatric", "Pediatric Female", "Pediatric Male", 
-               "AYP (15-24 years old)", "AYP Female", "AYP Male", "KP") 
+plot_name <- c("Standard", "Standard Female", "Standard Male",
+               "Pediatric", "Pediatric Female", "Pediatric Male",
+               "AYP (15-24 years old)", "AYP Female", "AYP Male",
+               "Adults", "Adults Female", "Adults Male", "KP")
 
 usethis::use_data(plot_name, overwrite = TRUE)
 

@@ -18,9 +18,6 @@ plot_cascade(.data, df_annot, cscd_num, p_title)
 
 \item{p_title}{plot title derived from the `cscd_num`}
 }
-\value{
-
-}
 \description{
 Plot Cascade
 `plot_cascade` is a ggplot2-based plot that arranges, annotates and

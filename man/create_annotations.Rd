@@ -11,9 +11,6 @@ create_annotations(.data, cscd_df)
 
 \item{cscd_df}{cascade value from the `create_cascade`}
 }
-\value{
-
-}
 \description{
 Title
 }

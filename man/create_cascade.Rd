@@ -9,12 +9,9 @@ create_cascade(msd_df)
 \arguments{
 \item{msd_df}{MSD data frame from either a Genie or Panorama MSD}
 }
-\value{
-
-}
 \description{
 `create_cascade` is a wrapper function that lets a user select between
-10 different cascde plots. Valid entries must fall between 1 and 10. The
+13 different cascade plots. Valid entries must fall between 1 and 10. The
 function will plot the selected cascade and return a list of data underlying
 the plot.
 }

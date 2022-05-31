@@ -11,9 +11,6 @@ fltr_cascade(.data, agency = "USAID")
 
 \item{agency}{default is USAID}
 }
-\value{
-
-}
 \description{
 Filters the cascade variables to current fiscal year and
 sets USAID as default funding agency

@@ -9,9 +9,6 @@ fltr_ayp(.data)
 \arguments{
 \item{.data}{MER structured data set whittled down}
 }
-\value{
-
-}
 \description{
 Filters a whittled down MSD into 15-24 year olds or AYPs.
 }

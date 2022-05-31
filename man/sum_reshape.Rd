@@ -11,9 +11,6 @@ sum_reshape(.data, ...)
 
 \item{...}{additional parameters to pass to `group_by`}
 }
-\value{
-
-}
 \description{
 Takes a whittled down MSD and cleans the indicators,
 summarizes the targets and results, and reshapes everything

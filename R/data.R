@@ -1,10 +1,10 @@
 #' Name of cascade plots available to the user
 #'
-#' List of indicators 
+#' List of indicators
 #'
 #' @usage data(plot_name)
 #'
-#' @format A list of all snapshot indicators
+#' @format A list of the plots available to the user
 #' \describe{
 #'   \item{plot_name}{cascade names}
 #' }
@@ -13,11 +13,11 @@
 
 #' Name of annotation indicators to include on plots
 #'
-#' List of indicators .
+#' List of indicators to be kept
 #'
 #' @usage data(keep_ind)
 #'
-#' @format A list of all snapshot indicators
+#' @format A list of the indicators to keep
 #' \describe{
 #'   \item{keep_ind}{indicator list}
 #' }
@@ -26,7 +26,7 @@
 
 #' List of disaggregate filters needed for peds / TN cascades
 #'
-#' List of indicators 
+#' List of indicators
 #'
 #' @usage data(disag_peds)
 #'
@@ -34,12 +34,12 @@
 #' \describe{
 #'   \item{disag_peds}{disag list}
 #' }
-#' 
+#'
 "disag_peds"
 
 #' List of disaggregate filters needed for KP
 #'
-#' List of indicators 
+#' List of indicators
 #'
 #' @usage data(disag_kp)
 #'
@@ -47,7 +47,7 @@
 #' \describe{
 #'   \item{disag_kp}{disag kp list}
 #' }
-#' 
+#'
 "disag_kp"
 
 

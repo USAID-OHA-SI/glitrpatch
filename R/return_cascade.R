@@ -43,8 +43,19 @@ return_cascade <- function(df, cscd_num){
       dplyr::filter(trendscoarse == "AYP")
   }
 
-  # KP cascde (1 option)
-  if(cscd_num == 10){
+  # Pediatric cascades all, female, male
+  if(cscd_num  %in% c(10, 11, 12)){
+    df_cscd <-
+      df %>%
+      youth_wrapper() %>%
+      {if (cscd_num == 11) fltr_sex(., m_or_f = "Female") else .} %>%
+      {if (cscd_num == 12) fltr_sex(., m_or_f = "Male")   else .} %>%
+      sum_reshape(trendscoarse) %>%
+      dplyr::filter(trendscoarse == "15+")
+  }
+
+  # KP cascade (1 option)
+  if(cscd_num == 13){
     df_cscd <-
       df %>%
       fltr_cascade() %>%

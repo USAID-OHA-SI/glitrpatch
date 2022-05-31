@@ -11,9 +11,6 @@ fltr_disag(.data, pop_fltr)
 
 \item{pop_fltr}{population filter to be applied to disaggregate}
 }
-\value{
-
-}
 \description{
 Filters the MSD to the appropriate population disaggregate
 }

@@ -5,7 +5,7 @@
 \alias{keep_ind}
 \title{Name of annotation indicators to include on plots}
 \format{
-A list of all snapshot indicators
+A list of the indicators to keep
 \describe{
   \item{keep_ind}{indicator list}
 }
@@ -14,6 +14,6 @@ A list of all snapshot indicators
 data(keep_ind)
 }
 \description{
-List of indicators .
+List of indicators to be kept
 }
 \keyword{datasets}

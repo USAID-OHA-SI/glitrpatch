@@ -5,7 +5,7 @@
 \alias{plot_name}
 \title{Name of cascade plots available to the user}
 \format{
-A list of all snapshot indicators
+A list of the plots available to the user
 \describe{
   \item{plot_name}{cascade names}
 }

@@ -11,9 +11,6 @@ return_cascade(df, cscd_num)
 
 \item{cscd_num}{cascade selection from user}
 }
-\value{
-
-}
 \description{
 Title
 }

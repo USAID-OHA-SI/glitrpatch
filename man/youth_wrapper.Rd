@@ -9,9 +9,6 @@ youth_wrapper(.data)
 \arguments{
 \item{.data}{MSD data set}
 }
-\value{
-
-}
 \description{
 Combines the cascade filter with the peds disag
 }

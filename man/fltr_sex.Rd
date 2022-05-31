@@ -11,9 +11,6 @@ fltr_sex(.data, m_or_f)
 
 \item{m_or_f}{Male or Female filter}
 }
-\value{
-
-}
 \description{
 Filters a whittled down MSD into sex categories, male or female.
 }
