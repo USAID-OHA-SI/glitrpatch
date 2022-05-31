@@ -11,6 +11,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # Create a standard cascade plot
+#' create_cascade(df)
+#' 1
+#' }
 create_cascade <- function(msd_df){
   print(glue::glue_col("{yellow Please enter the cascade you would like to create.}"))
   print(glue::glue_col("{yellow {1:length(plot_name)}:{plot_name}}"))
