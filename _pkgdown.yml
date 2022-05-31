@@ -1,0 +1,64 @@
+url: https://usaid-oha-si.github.io/glitrpatch/
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/USAID-OHA-SI/glitrpatch/
+    articles:
+      text: Articles
+      menu:
+      - text: How to use package
+        href: articles/package_use.html
+
+
+reference:
+- title: Cascade Plots
+  contents:
+    - create_cascade
+
+- title: Cascade helpers
+  contents:
+    - assign_cscd_colors
+    - create_annotations
+    - plot_cascade
+    - return_cascade
+    - sum_reshape
+    - youth_wrapper
+
+- title: Cascade variables and filters
+  contents:
+    - disag_kp
+    - disag_peds
+    - fltr_ayp
+    - fltr_cascade
+    - fltr_disag
+    - fltr_sex
+    - font_annot
+    - font_fam
+    - keep_ind
+    - plot_name
+    - plot_title
+    - results_color
+    - targets_color
+
