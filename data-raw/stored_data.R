@@ -21,4 +21,13 @@ usethis::use_data(disag_peds, overwrite = TRUE)
 disag_kp <-  c("KeyPop/Result", "KeyPop/HIVStatus", "KeyPop/Indication/HIVStatus")
 usethis::use_data(disag_kp, overwrite = TRUE)
 
+# index testing modalities
+disag_mods <- c("1:Age/Sex/IndexCasesOffered",
+               "2:Age/Sex/IndexCasesAccepted",
+               "3:Age Aggregated/Sex/Contacts",
+               "4:Age/Sex/Result")
+usethis::use_data(disag_mods, overwrite = TRUE)
+
+
+
 

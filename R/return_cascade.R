@@ -8,54 +8,70 @@
 #' @export
 #'
 #' @examples
-return_cascade <- function(df, cscd_num){
+return_cascade <- function(df, cscd_num) {
 
   # For Total Numerator all, female, male
-  if(cscd_num %in% c(1, 2, 3)){
+  if (cscd_num %in% c(1, 2, 3)) {
     df_cscd <-
       df %>%
       youth_wrapper() %>%
-      {if (cscd_num == 2) fltr_sex(., m_or_f = "Female") else .} %>%
-      {if (cscd_num == 3) fltr_sex(., m_or_f = "Male")   else .} %>%
+      {
+        if (cscd_num == 2) fltr_sex(., m_or_f = "Female") else .
+      } %>%
+      {
+        if (cscd_num == 3) fltr_sex(., m_or_f = "Male") else .
+      } %>%
       sum_reshape()
   }
 
   # Pediatric cascades all, female, male
-  if(cscd_num  %in% c(4, 5, 6)){
+  if (cscd_num %in% c(4, 5, 6)) {
     df_cscd <-
       df %>%
       youth_wrapper() %>%
-      {if (cscd_num == 5) fltr_sex(., m_or_f = "Female") else .} %>%
-      {if (cscd_num == 6) fltr_sex(., m_or_f = "Male")   else .} %>%
+      {
+        if (cscd_num == 5) fltr_sex(., m_or_f = "Female") else .
+      } %>%
+      {
+        if (cscd_num == 6) fltr_sex(., m_or_f = "Male") else .
+      } %>%
       sum_reshape(trendscoarse) %>%
       dplyr::filter(trendscoarse == "<15")
   }
 
   # AYP cascades all, female, male
-  if(cscd_num  %in% c(7, 8, 9)){
+  if (cscd_num %in% c(7, 8, 9)) {
     df_cscd <-
       df %>%
       youth_wrapper() %>%
-      {if (cscd_num == 8) fltr_sex(., m_or_f = "Female") else .} %>%
-      {if (cscd_num == 9) fltr_sex(., m_or_f = "Male")   else .} %>%
+      {
+        if (cscd_num == 8) fltr_sex(., m_or_f = "Female") else .
+      } %>%
+      {
+        if (cscd_num == 9) fltr_sex(., m_or_f = "Male") else .
+      } %>%
       fltr_ayp() %>%
       sum_reshape(trendscoarse) %>%
       dplyr::filter(trendscoarse == "AYP")
   }
 
   # Pediatric cascades all, female, male
-  if(cscd_num  %in% c(10, 11, 12)){
+  if (cscd_num %in% c(10, 11, 12)) {
     df_cscd <-
       df %>%
       youth_wrapper() %>%
-      {if (cscd_num == 11) fltr_sex(., m_or_f = "Female") else .} %>%
-      {if (cscd_num == 12) fltr_sex(., m_or_f = "Male")   else .} %>%
+      {
+        if (cscd_num == 11) fltr_sex(., m_or_f = "Female") else .
+      } %>%
+      {
+        if (cscd_num == 12) fltr_sex(., m_or_f = "Male") else .
+      } %>%
       sum_reshape(trendscoarse) %>%
       dplyr::filter(trendscoarse == "15+")
   }
 
   # KP cascade (1 option)
-  if(cscd_num == 13){
+  if (cscd_num == 13) {
     df_cscd <-
       df %>%
       fltr_cascade() %>%
@@ -87,9 +103,11 @@ return_cascade <- function(df, cscd_num){
 #' @examples
 fltr_cascade <- function(.data, agency = "USAID") {
   .data %>%
-    dplyr::filter(fiscal_year == curr_fy,
-                  funding_agency == agency,
-                  indicator %in% gophr::cascade_ind)
+    dplyr::filter(
+      fiscal_year == curr_fy,
+      funding_agency == agency,
+      indicator %in% gophr::cascade_ind
+    )
 }
 
 
@@ -121,7 +139,7 @@ fltr_disag <- function(.data, pop_fltr) {
 #' @export
 #'
 #' @examples
-fltr_ayp <- function(.data){
+fltr_ayp <- function(.data) {
   .data %>%
     dplyr::mutate(trendscoarse = ifelse(ageasentered %in% c("15-19", "20-24"), "AYP", "Non AYP"))
 }
@@ -138,7 +156,7 @@ fltr_ayp <- function(.data){
 #' @export
 #'
 #' @examples
-fltr_sex <- function(.data, m_or_f ){
+fltr_sex <- function(.data, m_or_f) {
   .data %>%
     dplyr::filter(sex %in% m_or_f)
 }
@@ -156,7 +174,7 @@ fltr_sex <- function(.data, m_or_f ){
 #' @export
 #'
 #' @examples
-youth_wrapper <- function(.data){
+youth_wrapper <- function(.data) {
   .data %>%
     fltr_cascade() %>%
     fltr_disag(pop_fltr = disag_peds)

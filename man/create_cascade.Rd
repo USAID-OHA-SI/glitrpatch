@@ -15,10 +15,3 @@ create_cascade(msd_df)
 function will plot the selected cascade and return a list of data underlying
 the plot.
 }
-\examples{
-\dontrun{
-# Create a standard cascade plot
-create_cascade(df)
-1
-}
-}

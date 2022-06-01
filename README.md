@@ -1,14 +1,20 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # glitrpatch
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of glitrpatch is to ...
+The goal of glitrpatch is to …
 
 ## Installation
 
-You can install the development version of glitrpatch from [GitHub](https://github.com/) with:
+You can install the development version of glitrpatch from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -16,8 +22,6 @@ devtools::install_github("USAID-OHA-SI/glitrpatch")
 ```
 
 ## Example
-
-This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(glitrpatch)
@@ -42,3 +46,11 @@ create_cascade(df)
 # You will then be prompted for which cascade to be returned.
 ```
 
+\`\`\`
+
+------------------------------------------------------------------------
+
+*Disclaimer: The findings, interpretation, and conclusions expressed
+herein are those of the authors and do not necessarily reflect the views
+of United States Agency for International Development. All errors remain
+our own.*

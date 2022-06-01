@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-plot_title <- function(cscd_num){
+plot_title <- function(cscd_num) {
   cscd_title <- glue::glue("{plot_name[cscd_num]}")
   return(cscd_title)
 }
@@ -55,90 +55,125 @@ targets_color <- "#939598"
 #' @export
 #'
 #' @examples
-plot_cascade <- function(.data, df_annot, cscd_num, p_title){
-
+plot_cascade <- function(.data, df_annot, cscd_num, p_title) {
   .data %>%
     dplyr::filter(period == max(period)) %>%
-    ggplot2::ggplot(aes(x = indicator,
-                        fill = indic_colors)) +
+    ggplot2::ggplot(aes(
+      x = indicator,
+      fill = indic_colors
+    )) +
     ggplot2::geom_col(aes(y = targets),
-                      fill = "#e6e6e6",
-                      width = 0.5) +
+      fill = "#e6e6e6",
+      width = 0.5
+    ) +
     ggplot2::geom_col(aes(y = results_cumulative),
-                      width = 0.5,
-                      position = position_nudge(x = 0.1)) +
-    ggplot2::geom_text(aes(y = results_cumulative,
-                           label = scales::comma(results_cumulative, 1)),
-                       size = 12/.pt, vjust = -0.45,
-                       family = font_fam,
-                       position = position_nudge(x = 0.1),
-                       color = results_color) +
-    ggplot2::geom_label(aes(y = results_cumulative,
-                            label = scales::percent(achv, 1)),
-                        size = 9/.pt, vjust = 1.2,
-                        family = font_fam,
-                        position = position_nudge(x = 0.1),
-                        fill = "white") +
-    ggplot2::geom_text(data = . %>% dplyr::filter(indicator == "HTS_TST"),
-                       aes(y = targets, label = "FY22 Targets"),
-                       size = 12/.pt,
-                       family = font_fam,
-                       hjust = 0.4,
-                       color = results_color) +
-    ggplot2::geom_text(data = df_annot %>%
-                         dplyr::filter(indicator == "HTS_TST"),
-                       aes(y = results_cumulative.y,
-                           label = paste("Tests needed for\none positive:",
-                                         scales::comma(results_cumulative.x),
-                                         "\n(Positivity rate:",
-                                         scales::percent(1/results_cumulative.x),
-                                         ")"),
-                           x = indicator,
-                           fill = targets_color),
-                       size = 12/.pt,
-                       family = font_annot,
-                       hjust = 0,
-                       vjust = -1,
-                       color = results_color) +
-    ggplot2::geom_text(data = df_annot %>%
-                         dplyr::filter(indicator == "TX_NEW"),
-                       aes(y = results_cumulative.y,
-                           label = paste("Linkage:",
-                                         scales::percent(results_cumulative.x)),
-                           x = indicator,
-                           fill = targets_color),
-                       size = 12/.pt,
-                       family = font_annot,
-                       hjust = 1,
-                       vjust = -10,
-                       color = results_color) +
-    ggplot2::geom_text(data = df_annot %>%
-                         dplyr::filter(indicator == "TX_PVLS_D"),
-                       aes(y = results_cumulative.y,
-                           label = paste("VLC:",
-                                         scales::percent(results_cumulative.x)),
-                           x = indicator,
-                           fill = targets_color),
-                       size = 12/.pt,
-                       family = font_annot,
-                       vjust = -10,
-                       color = results_color) +
-    ggplot2::geom_text(data = df_annot %>%
-                         dplyr::filter(indicator == "TX_PVLS"),
-                       aes(y = results_cumulative.y,
-                           label = paste("VLS:",
-                                         scales::percent(results_cumulative.x)),
-                           x = indicator,
-                           fill = targets_color),
-                       size = 12/.pt,
-                       family = font_annot,
-                       vjust = -10,
-                       color = results_color) +
-
+      width = 0.5,
+      position = position_nudge(x = 0.1)
+    ) +
+    ggplot2::geom_text(aes(
+      y = results_cumulative,
+      label = scales::comma(results_cumulative, 1)
+    ),
+    size = 12 / .pt, vjust = -0.45,
+    family = font_fam,
+    position = position_nudge(x = 0.1),
+    color = results_color
+    ) +
+    ggplot2::geom_label(aes(
+      y = results_cumulative,
+      label = scales::percent(achv, 1)
+    ),
+    size = 9 / .pt, vjust = 1.2,
+    family = font_fam,
+    position = position_nudge(x = 0.1),
+    fill = "white"
+    ) +
+    ggplot2::geom_text(
+      data = . %>% dplyr::filter(indicator == "HTS_TST"),
+      aes(y = targets, label = "FY22 Targets"),
+      size = 12 / .pt,
+      family = font_fam,
+      hjust = 0.4,
+      color = results_color
+    ) +
+    ggplot2::geom_text(
+      data = df_annot %>%
+        dplyr::filter(indicator == "HTS_TST"),
+      aes(
+        y = results_cumulative.y,
+        label = paste(
+          "Tests needed for\none positive:",
+          scales::comma(results_cumulative.x),
+          "\n(Positivity rate:",
+          scales::percent(1 / results_cumulative.x),
+          ")"
+        ),
+        x = indicator,
+        fill = targets_color
+      ),
+      size = 12 / .pt,
+      family = font_annot,
+      hjust = 0,
+      vjust = -1,
+      color = results_color
+    ) +
+    ggplot2::geom_text(
+      data = df_annot %>%
+        dplyr::filter(indicator == "TX_NEW"),
+      aes(
+        y = results_cumulative.y,
+        label = paste(
+          "Linkage:",
+          scales::percent(results_cumulative.x)
+        ),
+        x = indicator,
+        fill = targets_color
+      ),
+      size = 12 / .pt,
+      family = font_annot,
+      hjust = 1,
+      vjust = -10,
+      color = results_color
+    ) +
+    ggplot2::geom_text(
+      data = df_annot %>%
+        dplyr::filter(indicator == "TX_PVLS_D"),
+      aes(
+        y = results_cumulative.y,
+        label = paste(
+          "VLC:",
+          scales::percent(results_cumulative.x)
+        ),
+        x = indicator,
+        fill = targets_color
+      ),
+      size = 12 / .pt,
+      family = font_annot,
+      vjust = -10,
+      color = results_color
+    ) +
+    ggplot2::geom_text(
+      data = df_annot %>%
+        dplyr::filter(indicator == "TX_PVLS"),
+      aes(
+        y = results_cumulative.y,
+        label = paste(
+          "VLS:",
+          scales::percent(results_cumulative.x)
+        ),
+        x = indicator,
+        fill = targets_color
+      ),
+      size = 12 / .pt,
+      family = font_annot,
+      vjust = -10,
+      color = results_color
+    ) +
     ggplot2::scale_y_continuous(labels = scales::comma) +
     ggplot2::scale_fill_identity() +
     ggplot2::facet_wrap(~cascade,
-               scales = "free") +
+      scales = "free"
+    ) +
     glitr::si_style_ygrid(text_scale = 1.25) +
     ggplot2::labs(
       x = NULL,
@@ -147,9 +182,5 @@ plot_cascade <- function(.data, df_annot, cscd_num, p_title){
         toupper(),
       subtitle = glue::glue("{curr_pd} results listed above colored bar, achievement in box below"),
       caption = data_source
-      )
-
-
+    )
 }
-
-

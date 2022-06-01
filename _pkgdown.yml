@@ -36,14 +36,21 @@ reference:
 - title: Cascade Plots
   contents:
     - create_cascade
+    - create_index_cascade
 
 - title: Cascade helpers
   contents:
     - assign_cscd_colors
+    - assign_mods_colors
     - create_annotations
     - plot_cascade
+    - plot_index_cascade
+    - recode_mods
+    - relevel_mods
     - return_cascade
+    - return_index_cascade
     - sum_reshape
+    - sum_reshape_mods
     - youth_wrapper
 
 - title: Cascade variables and filters
@@ -53,6 +60,7 @@ reference:
     - fltr_ayp
     - fltr_cascade
     - fltr_disag
+    - fltr_mods
     - fltr_sex
     - font_annot
     - font_fam

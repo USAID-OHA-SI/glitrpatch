@@ -8,8 +8,7 @@
 #' @export
 #'
 #' @examples
-assign_cscd_colors <- function(.data){
-
+assign_cscd_colors <- function(.data) {
   df_cscd_viz <-
     .data %>%
     dplyr::filter(indicator != "TX_CURR_Lag2") %>%
@@ -34,17 +33,17 @@ assign_cscd_colors <- function(.data){
   df_cscd_viz <-
     df_cscd_viz %>%
     dplyr::bind_rows(df_cscd_viz %>%
-                       dplyr::filter(indicator == "HTS_TST_POS") %>%
-                       dplyr::mutate(cascade = "Linkage & Net New")) %>%
-    dplyr::mutate(indicator = forcats::fct_relevel(indicator, c(
-      "HTS_TST", "HTS_TST_POS", "TX_NEW", "TX_NET_NEW",
-      "TX_CURR", "TX_PVLS_D", "TX_PVLS"
-    )),
-    cascade = forcats::fct_relevel(cascade, c(
-      "Testing", "Linkage & Net New", "Treatment & VLS | VLS")
-    )
+      dplyr::filter(indicator == "HTS_TST_POS") %>%
+      dplyr::mutate(cascade = "Linkage & Net New")) %>%
+    dplyr::mutate(
+      indicator = forcats::fct_relevel(indicator, c(
+        "HTS_TST", "HTS_TST_POS", "TX_NEW", "TX_NET_NEW",
+        "TX_CURR", "TX_PVLS_D", "TX_PVLS"
+      )),
+      cascade = forcats::fct_relevel(cascade, c(
+        "Testing", "Linkage & Net New", "Treatment & VLS | VLS"
+      ))
     )
 
   return(df_cscd_viz)
-
 }

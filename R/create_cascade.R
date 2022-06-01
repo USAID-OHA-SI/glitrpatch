@@ -11,12 +11,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' # Create a standard cascade plot
-#' create_cascade(df)
-#' 1
-#' }
-create_cascade <- function(msd_df){
+#'
+create_cascade <- function(msd_df) {
   print(glue::glue_col("{yellow Please enter the cascade you would like to create.}"))
   print(glue::glue_col("{yellow {1:length(plot_name)}:{plot_name}}"))
 
@@ -24,28 +20,33 @@ create_cascade <- function(msd_df){
   cscd_num <- as.numeric(cscd_val)
 
   # Check the value entered is valid, if not return a useful error
-  if(!cscd_val %in% seq(1:length(plot_name)))
+  if (!cscd_val %in% seq(1:length(plot_name))) {
     stop(glue::glue_col("{cyan Please enter a valid selection between 1 and {length(plot_name)}}"))
-
-  else{
+  } else {
     message(glue::glue_col("{yellow You have selected the {plot_name[cscd_num]} Cascade.}"))
   }
 
-  if(!exists("data_source"))
-    stop(usethis::ui_code_block("data_source <-
+  if (!exists("data_source")) {
+    stop(
+      usethis::ui_code_block("data_source <-
                                 glamr::source_info(genie_path) %>% glue::glue(., '\nCreated by: USAID OHA SI Team')"),
-         usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the data source object.")
-  )
-
-  if(!exists("curr_fy"))
-    stop(usethis::ui_code_block("curr_fy <- glamr::source_info(genie_path, return = 'fiscal_year')"),
-         usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the curr_fy.")
+      usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the data source object.")
     )
+  }
 
-  if(!exists("curr_pd"))
-    stop(usethis::ui_code_block("curr_fy <- glamr::source_info(genie_path, return = 'period')"),
-         usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the curr_pd.")
+  if (!exists("curr_fy")) {
+    stop(
+      usethis::ui_code_block("curr_fy <- glamr::source_info(genie_path, return = 'fiscal_year')"),
+      usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the curr_fy.")
     )
+  }
+
+  if (!exists("curr_pd")) {
+    stop(
+      usethis::ui_code_block("curr_fy <- glamr::source_info(genie_path, return = 'period')"),
+      usethis::ui_todo("Run the code chunk above with the appropriate msd_path to set the curr_pd.")
+    )
+  }
 
 
   # Fetch the plot title
@@ -64,6 +65,5 @@ create_cascade <- function(msd_df){
   # Plot the cascade
   suppressWarnings(plot_cascade(df_viz, df_annot, cscd_num, p_title))
 
-  #return(list(df_viz, df_annot))
-
+  # return(list(df_viz, df_annot))
 }
